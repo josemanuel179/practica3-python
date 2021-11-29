@@ -5,7 +5,7 @@ all:
 	python3 src/application/app.py
 
 clean:
-	rm -rf __pycache__
+	py3clean .
 
 test:clean
-	python3 test.py
+	python3 -m unittest -v 

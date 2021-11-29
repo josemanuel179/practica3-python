@@ -21,8 +21,8 @@ class Query(object):
                   self.highBloodPreasure, self.platelets, self.creatinine, self.sodium,
                   self.sex, self.smoking, self.time]]
     
-    columns_list = ['age','anaemia','cpk','diabetes','ejection_franction',
-                   'high_blood_preasure','platelets','creatinine','sodium','sex',
+    columns_list = ['age','anaemia','cpk','diabetes','ejection_fraction',
+                   'high_blood_pressure','platelets','creatinine','sodium','sex',
                    'smoking','time']
 
     query = pd.DataFrame(query_list, columns = columns_list)

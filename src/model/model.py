@@ -20,10 +20,15 @@ class ModelGenerator(object):
     self._model.fit(X_train, y_train)
 
   def loadModel(self, fileName):
-    self._model = pickle.load(open(self._modelos + fileName + '.sav', 'rb'))
-    
+    if os.path.isfile(self._modelos + fileName + '.sav'):
+      with open(self._modelos + fileName + '.sav', 'rb') as f:
+        self._model = pickle.load(f)
+    else:
+      raise Exception()
+
   def saveModel(self, fileName):
-    pickle.dump(self._model, open(self._modelos + fileName + '.sav', 'wb'))
+    with open(self._modelos + fileName + '.sav', 'wb') as f:
+      pickle.dump(self._model, f)
 
   def useModel(self, query):
     answer = self._model.predict(query)

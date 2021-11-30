@@ -3,7 +3,7 @@ run:clean
 	rm -f app 
  
 test:clean
-	python3 -m unittest -v test/test_query.py 
+	python3 -m unittest -v 
 
 clean:
 	py3clean .

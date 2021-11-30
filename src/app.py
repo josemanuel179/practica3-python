@@ -8,17 +8,18 @@ from model import ModelGenerator
 
 def main():
   parser = argparse.ArgumentParser(description='Práctica 3 IA')
-  parser.add_argument('-c', '--create-model', metavar='', help='Crear modelo nuevo')
-  parser.add_argument('-l', '--load-model', metavar='', help='Cargar modelo')
-  parser.add_argument('-q', '--new-query', metavar='', help='Generar nueva consulta', 
-      nargs = '?', const=' ') 
+  parser.add_argument('-c', '--create-model', metavar='<nombre-modelo>', help='crear modelo nuevo')
+  parser.add_argument('-l', '--load-model', metavar='<nombre-modelo>', help='cargar modelo')
+  parser.add_argument('-q', '--new-query', metavar='', help='generar nueva consulta', nargs = '?', const=' ')
+  parser.add_argument('-s', '--model-score', metavar='<tamaño-test>', help='calcular precisión modelo, introducir ', 
+    nargs = '?', const=0.9)
   args = parser.parse_args()
 
   if args.create_model:
     model = ModelGenerator()
     model.createModel()
     model.saveModel(args.create_model)
-    print(f'Modelo {args.create_model} generado')
+    print(f"Modelo '{args.create_model}' generado\n")
   
   if args.load_model:
     model = ModelGenerator()
@@ -42,6 +43,10 @@ def main():
 
     query = q.createQuery()
     print('\nEl paciente ' + model.useModel(query) + '\n')
+
+  if args.model_score:
+    model = ModelGenerator()
+    model.modelScore(args.model_score)
 
 if __name__ == '__main__':
   main()

@@ -11,7 +11,7 @@ class Query(object):
     self._highBloodPreasure = 0
     self._platelets = 0
     self._creatinine = 0
-    self._sodium = 0
+    self._sodium = 0.0
     self._sex = 0
     self._smoking = 0
     self._time = 0
@@ -46,9 +46,9 @@ class Query(object):
     return self._anemia
        
   def setAnemia(self, anemia):
-    if anemia == True:
+    if anemia == 's':
       self._anemia = 1
-    elif anemia == False:
+    elif anemia == 'n':
       self._anemia = 0
 
   def delAnemia(self):
@@ -73,9 +73,9 @@ class Query(object):
     return self._diabetes
 
   def setDiabetes(self, diabetes):
-    if diabetes == True:
+    if diabetes == 's':
       self._diabetes = 1
-    elif diabetes == False:
+    elif diabetes == 'n':
       self._diabetes = 0
   
   def delDiabetes(self):
@@ -100,9 +100,9 @@ class Query(object):
     return self._highBloodPreasure
 
   def setHighBloodPreasure(self, highBloodPreasure):
-    if highBloodPreasure == True:
+    if highBloodPreasure == 's':
       self._highBloodPreasure = 1 
-    elif highBloodPreasure == False:
+    elif highBloodPreasure == 'n':
       self._highBloodPreasure = 0 
   
   def delHighBloodPreasure(self):
@@ -151,9 +151,9 @@ class Query(object):
     return self._sex
 
   def setSex(self, sex):
-    if sex == 'm' or 'male':
+    if sex == 'hombre':
       self._sex = 1
-    elif sex == 'f' or 'female':
+    elif sex == 'mujer':
       self._sex = 0
   
   def delSex(self):
@@ -166,9 +166,9 @@ class Query(object):
     return self._smoking
 
   def setSmoking(self, smoking):
-    if smoking == True:
+    if smoking == 'si':
       self._smoking = 1
-    elif smoking == False:
+    elif smoking == 'no':
       self._smoking = 0
   
   def delSmoking(self):

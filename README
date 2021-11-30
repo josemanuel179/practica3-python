@@ -1,3 +1,6 @@
-TO DO:
-  1. Reacer los datos
-  2. 
+# Práctica 3 Aprendizaje Automático
+
+## Introducción
+Aplicación Python para la predicción de resultados de ataques de corazón.
+
+### Para instalar tkinter --> sudo apt-get install python3-tk

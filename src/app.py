@@ -1,93 +1,47 @@
+#!/bin/env python3
+
 import sys
+import argparse
 import os
 from query import Query
 from model import ModelGenerator
 
 def main():
-  print('\n\nPráctica 3 Inteligencia Artficial')
-  print('----------------------------------------')
-  print('Manual [0]\tRealizar Consulta [1]\t\tSalir[2]')
+  parser = argparse.ArgumentParser(description='Práctica 3 IA')
+  parser.add_argument('-c', '--create-model', metavar='', help='Crear modelo nuevo')
+  parser.add_argument('-l', '--load-model', metavar='', help='Cargar modelo')
+  parser.add_argument('-q', '--new-query', metavar='', help='Generar nueva consulta', 
+      nargs = '?', const=' ') 
+  args = parser.parse_args()
+
+  if args.create_model:
+    model = ModelGenerator()
+    model.createModel()
+    model.saveModel(args.create_model)
+    print(f'Modelo {args.create_model} generado')
   
-  action = input()
+  if args.load_model:
+    model = ModelGenerator()
+    model.loadModel(args.load_model)
 
-  if action == '0':
-    pass
-  
-  elif action == '1':
-    modelMenu()
-
-  elif action == '2':
-    sys.exit('Finalizado programa...\n')
-  
-  else:
-    print('Error. Consulta no válida')
-    main()
-
-def modelMenu():
-  print('\nCrear nuevo modelo [0]\tUsar modelo existente [1]')
-  
-  action = input()
-
-  if action == '0':
-    queryMenu()
-
-  elif action == '1':
+  if args.new_query:
+    q = Query()
     
-    models = os.listdir('models')
-    
-    if models:
-      print('\nLista de modelos existentes')
-      print('----------------------------------------')
-      for model in models:
-        print(model)
-    
-    else:
-      print('Error. No hay ningun modelo existente')
-      modelMenu()
+    q.setAge(int(input('Edad: ')))
+    q.setAnemia(input('Anemia [s/n]: '))
+    q.setCPK(int(input('CPK: ')))
+    q.setDiabetes(input('Diabetes [s/n]: '))
+    q.setEjectionFraction(int(input('Fracción de eyección: ')))
+    q.setHighBloodPreasure(input('Presión arterial alta [s/n]: '))
+    q.setPlatelets(int(input('Número de plaquetas: ')))
+    q.setCreatinine(float(input('Creatina: ')))
+    q.setSodium(float(input('Sodio: ')))
+    q.setSex(input('Sexo [hombre/mujer]: '))
+    q.setSmoking(input('Fumador [s/n]: '))
+    q.setTime(int(input('Tiempo en observación (horas): ')))
 
-    model = input('\nModelo: ')
-    
-    queryMenu(model)
-
-def queryMenu(modelFile):
-  pass
-
-def queryMenu():
-  pass
+    query = q.createQuery()
+    print('\nEl paciente ' + model.useModel(query) + '\n')
 
 if __name__ == '__main__':
   main()
-
-
-'''
-q1 = Query()
-q1.setAge(80)
-q1.setAnemia(False)
-q1.setCPK(160)
-q1.setDiabetes(True)
-q1.setEjectionFraction(30)
-q1.setHighBloodPreasure(True)
-q1.setPlatelets(25450)
-q1.setCreatinine(1.8)
-q1.setSodium(140)
-q1.setSex('male')
-q1.setSmoking(False)
-q1.setTime(5)
-
-q1_query = q1.createQuery()
-print(q1_query)
-
-m1 = ModelGenerator()
-m1.createModel()
-
-result = m1.useModel(q1_query)
-print(result)
-
-m1.saveModel('modelo1')
-
-m2 = ModelGenerator()
-m2.loadModel('modelo1')
-result2 = m1.useModel(q1_query)
-print(result2)
-print(m2.modelScore(0.9))
-'''

@@ -1,11 +1,9 @@
-executable:
-	python3 src/application/app.py
-
-all:
-	python3 src/application/app.py
+run:clean
+	python3 src/application/app.py -h
+	rm -f app 
+ 
+test:clean
+	python3 -m unittest -v test/test_query.py 
 
 clean:
 	py3clean .
-
-test:clean
-	python3 -m unittest -v 

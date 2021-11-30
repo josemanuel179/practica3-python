@@ -5,5 +5,4 @@ numpy
 joblib
 python-dateutil
 pytz
-graphviz
 matplotlib

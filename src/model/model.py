@@ -29,9 +29,9 @@ class ModelGenerator(object):
     answer = self._model.predict(query)
 
     if answer[0] == 0:
-      result = 'Vivirá'
+      result = 'vivirá'
     elif answer[0] == 1:
-      result = 'Morirá'
+      result = 'morirá'
     else:
       raise Exception('Error al usar el modelo')
 

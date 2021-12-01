@@ -3,7 +3,8 @@ import os
 import pandas as pd
 from src.query import Query
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier 
+from sklearn.tree import export_text
 
 class ModelGenerator(object):
   
@@ -45,7 +46,17 @@ class ModelGenerator(object):
   def modelScore(self, testSize):
     X_train, X_test, y_train, y_test = train_test_split(
         self._data.drop(['death'], axis ='columns'),
-        self._data['death'],test_size= testSize)
+        self._data['death'],test_size=testSize)
     
     return self._model.score(X_test, y_test)
 
+  def createGraph(self):
+    f_names = []
+    for col in self._data.columns:
+        if col != 'death':
+            f_names.append(col)
+    
+    estimator = self._model.estimators_[5]
+
+    text_representation = export_text(estimator)
+    return text_representation

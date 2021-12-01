@@ -3,8 +3,8 @@
 import sys
 import argparse
 import os
-from query import Query
-from model import ModelGenerator
+from src.query import Query
+from src.model import ModelGenerator
 
 def main():
   parser = argparse.ArgumentParser(description='Práctica 3 IA')

@@ -6,4 +6,4 @@ test:clean
 	python3 -m unittest -v 
 
 clean:
-	py3clean .
+	find . -path '*/__pycache__*' -delete

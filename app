@@ -10,8 +10,8 @@ def main():
   parser = argparse.ArgumentParser(description='Práctica 3 IA')
   parser.add_argument('-c', '--create-model', metavar='<nombre-modelo>', help='crear modelo nuevo')
   parser.add_argument('-l', '--load-model', metavar='<nombre-modelo>', help='cargar modelo')
-  parser.add_argument('-q', '--new-query', metavar='', help='generar nueva consulta', nargs = '?', const=' ')
-  parser.add_argument('-s', '--model-score', metavar='<tamaño-test>', help='calcular precisión modelo, introducir ', nargs = '?', const=0.9)
+  parser.add_argument('-q', '--new-query', help='generar nueva consulta', nargs='?', const=' ')
+  parser.add_argument('-s', '--model-score', metavar='<tamaño-test>', help='calcular precisión modelo', nargs = '?', const=0.9)
   parser.add_argument('-g', '--graph', metavar= '', help='generar grafo', nargs = '?', const=' ')
   args = parser.parse_args()
 

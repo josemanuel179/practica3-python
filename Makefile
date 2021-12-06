@@ -1,6 +1,5 @@
 run:clean
-	python3 src/application/app.py -h
-	rm -f app 
+	./app -h
  
 test:clean
 	python3 -m unittest -v 

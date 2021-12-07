@@ -3,10 +3,9 @@
 ## Introducción
 Aplicación para la predicción de ataques de corazón a partir de. El resultado de la predicción se basa en distintos campos
 
-Autor: José Manuel Martínez
-
-Lenguaje de programación: **Python 3.8.10**
-Sistema Operativo: **Ubuntu 20.04.3 LTS**
+- Autor: José Manuel Martínez
+- Lenguaje de programación: **Python 3.8.10**
+- Sistema Operativo: **Ubuntu 20.04.3 LTS**
 
 ## Instalación
 Para instalar los módulos requeridos ejecutar la instrucción
@@ -55,6 +54,7 @@ pip install -r requirements.txt
 | Death               | Evento Final                                                      | INT          |
 
 | Age | Anemia | CPK  | Diabetes | Ejection Fraction | High Blood Preasure | Platelets    | Creatinine | Sodium | Sex | Smoking | Time | Death |
+| --- | ------ | ---- | -------- | ----------------- | ------------------- | ------------ | ---------- | ------ | --- | ------- | ---- | ----- |
 | 75  | 0      | 582  | 0        | 20                | 1                   | 265000       | 1.9        | 130    | 1   | 0       | 4    | 1     |
 | 55  | 0      | 7881 | 0        | 38                | 0                   | 263358.03    | 1.1        | 136    | 1   | 0       | 6    | 1     |
 | 65  | 0      | 146  | 0        | 20                | 0                   | 162000       | 1.3        | 129    | 1   | 1       | 7    | 1     |

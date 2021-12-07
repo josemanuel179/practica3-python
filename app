@@ -45,8 +45,7 @@ def main():
     print('\nEl paciente ' + model.useModel(query) + '\n')
 
   if args.model_score:
-    print(args.model_score)
-    print(model.modelScore(float(args.model_score)))
+    print('\nPuntuación del modelo:' + str(model.modelScore(float(args.model_score))) + '\n')
 
   if args.graph:
     print(model.createGraph()) 

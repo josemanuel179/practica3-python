@@ -13,6 +13,19 @@ Para instalar los módulos requeridos ejecutar la instrucción
 pip install -r requirements.txt
 ```
 
+Los paquetes necesarios para la ejecución de la aplicación son
+```
+scikit-learn (version 1.0.1)
+pandas (version 1.3.4)
+scipy (version 1.7.3)
+numpy (version 1.21.4)
+joblib (version 1.1.0)
+python-dateutil (version 2.7.3)
+pytz (version 2019.3)
+matplotlib (version 3.5.0)
+graphviz (version 0.19)
+```
+
 ## Ejecución
 - Para **obtener el manual** se puede ejecutar la instrucción
 ```
